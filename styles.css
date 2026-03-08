@@ -286,6 +286,228 @@ button:hover,
   text-transform: uppercase;
 }
 
+.command-grid {
+  display: grid;
+  grid-template-columns: 250px 1fr 1fr;
+  gap: 14px;
+}
+
+.dial-column {
+  display: grid;
+  gap: 10px;
+}
+
+.ops-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.dial-card .dial-labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dial-shell {
+  --dial-value: 0%;
+  margin: 12px auto 0;
+  width: 120px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  position: relative;
+  border: 1px solid rgba(96, 71, 36, 0.16);
+  background:
+    conic-gradient(from -90deg, transparent var(--dial-value), rgba(96, 71, 36, 0.08) var(--dial-value)),
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.4));
+  display: grid;
+  place-items: center;
+}
+
+.dial-shell::before {
+  content: "";
+  width: 82px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.6));
+}
+
+.dial-shell .dial-value {
+  position: absolute;
+  text-align: center;
+  color: var(--ink);
+  font-size: 0.98rem;
+  z-index: 1;
+  max-width: 90px;
+  line-height: 1.2;
+}
+
+.dial-shell.dial-success {
+  --ring: linear-gradient(145deg, #4f8f67, #2e6b57);
+}
+
+.dial-shell.dial-warn {
+  --ring: linear-gradient(145deg, #c68a1d, #b87712);
+}
+
+.dial-shell.dial-error {
+  --ring: linear-gradient(145deg, #a2494b, #7b3536);
+}
+
+.dial-shell.dial-success,
+.dial-shell.dial-warn,
+.dial-shell.dial-error {
+  border-color: rgba(46, 107, 87, 0.18);
+  background:
+    var(--ring),
+    conic-gradient(from -90deg, rgba(255, 255, 255, 0.9) var(--dial-value), rgba(255, 255, 255, 0.24) var(--dial-value)),
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.56));
+}
+
+.small-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.status-chip {
+  border-radius: 999px;
+  padding: 6px 10px;
+  border: 1px solid rgba(96, 71, 36, 0.16);
+  color: var(--ink);
+  font-size: 0.75rem;
+  text-transform: capitalize;
+  letter-spacing: 0.04em;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.status-chip.success {
+  background: rgba(46, 107, 87, 0.12);
+  color: #23553f;
+  border-color: rgba(46, 107, 87, 0.24);
+}
+
+.status-chip.pass {
+  background: rgba(46, 107, 87, 0.12);
+  color: #23553f;
+  border-color: rgba(46, 107, 87, 0.24);
+}
+
+.status-chip.warn {
+  background: rgba(198, 138, 29, 0.12);
+  color: var(--gold-deep);
+  border-color: rgba(198, 138, 29, 0.24);
+}
+
+.status-chip.error {
+  background: rgba(162, 73, 75, 0.12);
+  color: var(--rose);
+  border-color: rgba(162, 73, 75, 0.24);
+}
+
+.status-chip.low,
+.status-chip.medium,
+.status-chip.high,
+.status-chip.muted {
+  text-transform: capitalize;
+}
+
+.status-chip.low {
+  background: rgba(46, 107, 87, 0.08);
+  border-color: rgba(46, 107, 87, 0.2);
+}
+
+.status-chip.medium {
+  background: rgba(198, 138, 29, 0.08);
+  border-color: rgba(198, 138, 29, 0.2);
+}
+
+.status-chip.high {
+  background: rgba(162, 73, 75, 0.1);
+  border-color: rgba(162, 73, 75, 0.2);
+}
+
+.status-chip.muted {
+  background: rgba(140, 127, 108, 0.1);
+  border-color: rgba(140, 127, 108, 0.2);
+  color: #675f55;
+}
+
+.ops-check-list,
+.ops-queue,
+.ops-agent-list,
+.ops-log {
+  display: grid;
+  gap: 8px;
+}
+
+.ops-check-row,
+.ops-queue-item,
+.ops-agent,
+.ops-log-row {
+  display: grid;
+  gap: 6px;
+  padding: 12px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(96, 71, 36, 0.12);
+}
+
+.ops-queue-item .ops-queue-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.ops-queue-title {
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.ops-bar-chart {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 8px;
+  align-items: end;
+  min-height: 120px;
+}
+
+.ops-bar {
+  display: grid;
+  gap: 4px;
+  justify-items: center;
+}
+
+.ops-bar-fill {
+  width: 100%;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #d79f37, #b87712);
+  height: var(--height);
+  min-height: 4px;
+}
+
+.ops-agent .helper,
+.ops-queue-meta,
+.muted {
+  color: var(--muted);
+}
+
+small.muted {
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.ops-log-row {
+  grid-template-columns: auto 1.2fr 1fr auto;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.ops-log-row > strong {
+  min-width: 120px;
+}
+
 .toolbar,
 .section {
   padding: 22px;
@@ -704,7 +926,8 @@ input[type="range"] {
   .field-row,
   .field-row.compact,
   .metric-grid,
-  .hero-lead-grid {
+  .hero-lead-grid,
+  .command-grid {
     grid-template-columns: 1fr;
   }
 
