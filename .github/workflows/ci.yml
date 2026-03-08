@@ -12,23 +12,5 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v4
-      - name: Build Docker image
-        run: docker build -t lion-planner-web:test .
       - name: Run app
-        run: |
-          docker run -d --rm --name lion-planner-web-test -p 8080:80 lion-planner-web:test
-          for i in {1..20}; do
-            if curl -fsS http://127.0.0.1:8080 > /tmp/lion-planner-home.html; then
-              echo "App is reachable"
-              break
-            fi
-            sleep 1
-          done
-          if ! curl -fsS http://127.0.0.1:8080 | grep -qi "Lion ADHD Planner"; then
-            echo "Expected landing marker not found"
-            cat /tmp/lion-planner-home.html
-            exit 1
-          fi
-      - name: Stop test container
-        if: always()
-        run: docker stop lion-planner-web-test || true
+        run: ./scripts/test-env.sh 8080

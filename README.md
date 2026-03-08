@@ -20,11 +20,11 @@ Standalone gamified web version of the planner in:
 
 ## Local environment
 
-Start a simple local test environment with Docker:
+Start a local test environment:
 
 ```bash
 cd lion-planner-web
-docker compose up --build
+./scripts/test-env.sh
 ```
 
 The app is available at [http://localhost:8080](http://localhost:8080).
@@ -34,6 +34,13 @@ The app is available at [http://localhost:8080](http://localhost:8080).
 ```bash
 ./scripts/test-env.sh
 ```
+
+If Docker is unavailable, the script automatically falls back to a local `python3 -m http.server` instance.
+
+Command-center checks in this smoke test include:
+
+- `Efficio Lion ADHD Planner`
+- `Lion Command Center`
 
 ## Open it directly
 
