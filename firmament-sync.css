@@ -1,0 +1,28 @@
+.toolbar-actions-panel {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.firmament-sync-button {
+  box-shadow: 0 14px 30px rgba(46, 107, 87, 0.16);
+}
+
+.firmament-sync-button[disabled] {
+  cursor: wait;
+  opacity: 0.72;
+}
+
+.firmament-sync-status {
+  background: rgba(198, 138, 29, 0.08);
+  border-color: rgba(198, 138, 29, 0.18);
+  color: #8a5f17;
+}
+
+.firmament-sync-status span {
+  color: rgba(52, 41, 28, 0.78);
+}
+
+@media (max-width: 980px) {
+  .toolbar-actions-panel {
+    grid-template-columns: 1fr;
+  }
+}

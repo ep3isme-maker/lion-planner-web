@@ -1,0 +1,7 @@
+services:
+  lion-planner-web:
+    build: .
+    container_name: lion-planner-web
+    ports:
+      - "8080:80"
+    restart: unless-stopped
